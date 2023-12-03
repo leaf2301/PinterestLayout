@@ -13,6 +13,7 @@
 		E1DC46A02B1C853A0006A96F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1DC469E2B1C853A0006A96F /* Main.storyboard */; };
 		E1DC46A22B1C853C0006A96F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1DC46A12B1C853C0006A96F /* Assets.xcassets */; };
 		E1DC46A52B1C853C0006A96F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1DC46A32B1C853C0006A96F /* LaunchScreen.storyboard */; };
+		E1DC46AE2B1C85E30006A96F /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC46AD2B1C85E30006A96F /* PinterestLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E1DC46A12B1C853C0006A96F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1DC46A42B1C853C0006A96F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1DC46A62B1C853C0006A96F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1DC46AD2B1C85E30006A96F /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		E1DC46972B1C853A0006A96F /* PinterestBasicLayout */ = {
 			isa = PBXGroup;
 			children = (
+				E1DC46AC2B1C85DA0006A96F /* Layouts */,
 				E1DC46982B1C853A0006A96F /* AppDelegate.swift */,
 				E1DC469A2B1C853A0006A96F /* SceneDelegate.swift */,
 				E1DC469C2B1C853A0006A96F /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				E1DC46A62B1C853C0006A96F /* Info.plist */,
 			);
 			path = PinterestBasicLayout;
+			sourceTree = "<group>";
+		};
+		E1DC46AC2B1C85DA0006A96F /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				E1DC46AD2B1C85E30006A96F /* PinterestLayout.swift */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1DC46AE2B1C85E30006A96F /* PinterestLayout.swift in Sources */,
 				E1DC469D2B1C853A0006A96F /* ViewController.swift in Sources */,
 				E1DC46992B1C853A0006A96F /* AppDelegate.swift in Sources */,
 				E1DC469B2B1C853A0006A96F /* SceneDelegate.swift in Sources */,
