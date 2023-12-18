@@ -8,23 +8,30 @@
 import UIKit
 
 protocol PinterestLayoutDelegate {
-    func collectionView(collectionView: UICollectionView, heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat
+    func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat
+    
+    func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat
+
 }
 
 class PinterestLayout: UICollectionViewLayout {
-    
+    var cellPadding: CGFloat = 0
     var delegate: PinterestLayoutDelegate!
     var numberOfColumns = 1
     
-    private var cache = [UICollectionViewLayoutAttributes]()
+    private var cache = [PinterestLayoutAttributes]()
     
     private var contentHeight: CGFloat = 0
     private var width: CGFloat {
         get {
-            return CGRectGetWidth(collectionView!.bounds)
+            let insets = collectionView!.contentInset
+            return CGRectGetWidth(collectionView!.bounds) - (insets.left + insets.right)
         }
     }
     
+    override class var layoutAttributesClass: AnyClass {
+        return PinterestLayoutAttributes.self
+    }
     
     override var collectionViewContentSize: CGSize {
         return CGSize(width: width, height: contentHeight)
@@ -32,13 +39,14 @@ class PinterestLayout: UICollectionViewLayout {
     
         
     override func prepare() {
-        
+        super.prepare()
         if cache.isEmpty {
             let columnWidth = width/CGFloat(numberOfColumns)
             
             var xOffsets = [CGFloat]()
             
             for column in 0..<numberOfColumns {
+                // 0 1 2
                 xOffsets.append(CGFloat(column)*columnWidth)
             }
             
@@ -48,12 +56,20 @@ class PinterestLayout: UICollectionViewLayout {
             
             for item in 0..<collectionView!.numberOfItems(inSection: 0) {
                 let indexPath = IndexPath(item: item, section: 0)
-                let height = delegate.collectionView(collectionView: collectionView!, heightForItemAtIndexPath: indexPath)
+                
+//                let height = delegate.collectionView(collectionView: collectionView!, heightForItemAtIndexPath: indexPath)
+                
+                let width = columnWidth - (cellPadding*2)
+                let photoHeight = delegate.collectionView(collectionView: collectionView!, heightForPhotoAtIndexPath: indexPath, withWidth: width)
+                let annotationheight = delegate.collectionView(collectionView: collectionView!, heightForAnnotationAtIndexPath: indexPath, withWidth: width)
+                let height = cellPadding + photoHeight + annotationheight + cellPadding
                 
                 let frame = CGRect(x: xOffsets[column], y: yOffsets[column], width: columnWidth, height: height)
+                let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
                 
-                let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-                attributes.frame = frame
+                let attributes = PinterestLayoutAttributes(forCellWith: indexPath)
+                attributes.frame = insetFrame
+                attributes.photoHeight = photoHeight
                 cache.append(attributes)
                 //Scroll
                 contentHeight = max(contentHeight, CGRectGetMaxY(frame))
@@ -94,4 +110,26 @@ func convertStringToWidth(TextArray: [String], font: UIFont, padding: CGFloat) -
         returnArray.append(width)
     }
     return returnArray
+}
+
+
+class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
+    var photoHeight: CGFloat = 0
+    
+    override func copy(with zone: NSZone? = nil) -> Any {
+        let copy = super.copy(with: zone) as! PinterestLayoutAttributes
+        copy.photoHeight = photoHeight
+        
+        return copy
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        if let attributes = object as? PinterestLayoutAttributes {
+            if attributes.photoHeight == photoHeight {
+                return super.isEqual(object)
+            }
+        }
+        
+        return false
+    }
 }

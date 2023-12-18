@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1B32B862B1CBD0700F56EC5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E1B32B852B1CBD0700F56EC5 /* SDWebImage */; };
+		E1B32B882B1CBD0700F56EC5 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E1B32B872B1CBD0700F56EC5 /* SDWebImageMapKit */; };
 		E1DC46992B1C853A0006A96F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC46982B1C853A0006A96F /* AppDelegate.swift */; };
 		E1DC469B2B1C853A0006A96F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC469A2B1C853A0006A96F /* SceneDelegate.swift */; };
 		E1DC469D2B1C853A0006A96F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC469C2B1C853A0006A96F /* ViewController.swift */; };
@@ -14,6 +16,7 @@
 		E1DC46A22B1C853C0006A96F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1DC46A12B1C853C0006A96F /* Assets.xcassets */; };
 		E1DC46A52B1C853C0006A96F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1DC46A32B1C853C0006A96F /* LaunchScreen.storyboard */; };
 		E1DC46AE2B1C85E30006A96F /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC46AD2B1C85E30006A96F /* PinterestLayout.swift */; };
+		E1DC46B02B1C9F0D0006A96F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC46AF2B1C9F0D0006A96F /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,7 @@
 		E1DC46A42B1C853C0006A96F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1DC46A62B1C853C0006A96F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1DC46AD2B1C85E30006A96F /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		E1DC46AF2B1C9F0D0006A96F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B32B882B1CBD0700F56EC5 /* SDWebImageMapKit in Frameworks */,
+				E1B32B862B1CBD0700F56EC5 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +68,7 @@
 				E1DC46982B1C853A0006A96F /* AppDelegate.swift */,
 				E1DC469A2B1C853A0006A96F /* SceneDelegate.swift */,
 				E1DC469C2B1C853A0006A96F /* ViewController.swift */,
+				E1DC46AF2B1C9F0D0006A96F /* CollectionViewCell.swift */,
 				E1DC469E2B1C853A0006A96F /* Main.storyboard */,
 				E1DC46A12B1C853C0006A96F /* Assets.xcassets */,
 				E1DC46A32B1C853C0006A96F /* LaunchScreen.storyboard */,
@@ -94,6 +101,10 @@
 			dependencies = (
 			);
 			name = PinterestBasicLayout;
+			packageProductDependencies = (
+				E1B32B852B1CBD0700F56EC5 /* SDWebImage */,
+				E1B32B872B1CBD0700F56EC5 /* SDWebImageMapKit */,
+			);
 			productName = PinterestBasicLayout;
 			productReference = E1DC46952B1C853A0006A96F /* PinterestBasicLayout.app */;
 			productType = "com.apple.product-type.application";
@@ -122,6 +133,9 @@
 				Base,
 			);
 			mainGroup = E1DC468C2B1C853A0006A96F;
+			packageReferences = (
+				E1B32B842B1CBD0700F56EC5 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = E1DC46962B1C853A0006A96F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -149,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1DC46B02B1C9F0D0006A96F /* CollectionViewCell.swift in Sources */,
 				E1DC46AE2B1C85E30006A96F /* PinterestLayout.swift in Sources */,
 				E1DC469D2B1C853A0006A96F /* ViewController.swift in Sources */,
 				E1DC46992B1C853A0006A96F /* AppDelegate.swift in Sources */,
@@ -375,6 +390,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E1B32B842B1CBD0700F56EC5 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1B32B852B1CBD0700F56EC5 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1B32B842B1CBD0700F56EC5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		E1B32B872B1CBD0700F56EC5 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1B32B842B1CBD0700F56EC5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E1DC468D2B1C853A0006A96F /* Project object */;
 }
